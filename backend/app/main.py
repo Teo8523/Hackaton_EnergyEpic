@@ -2,7 +2,10 @@ import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
+from app.models.mlModel import mlModel
 
+#rutas
+from app.controllers.predictionController import router as predictionRouter
 
 # Cargar variables de entorno al principio para que esten disponibles globalmente
 load_dotenv()
@@ -42,7 +45,13 @@ app.add_middleware(
     max_age=600,                 # Cachear preflight requests por 10 minutos
 )
 
+#rutas
+app.include_router(predictionRouter, prefix="/api/predict")
 
+
+@app.on_event("startup")
+def load_model():
+    mlModel.load()
 
 # - Endpoints de Salud y Raiz
 @app.get("/", summary="Estado de la API Principal")
