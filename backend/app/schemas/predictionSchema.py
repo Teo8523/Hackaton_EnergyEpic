@@ -1,4 +1,5 @@
 from pydantic import BaseModel,Field
+from typing import Dict, List
 
 class PredictionInput(BaseModel):
     # Variables operativas
@@ -19,6 +20,11 @@ class PredictionInput(BaseModel):
     agua_litros: float = Field(None, ge=0)
 
 
+
+class Explanation(BaseModel):
+    quantitative: Dict[str, float]
+    qualitative: List[str]
+
 class PredictionOutput(BaseModel):
     prediction_kwh: float
-    explanation: dict
+    explanation: Explanation
