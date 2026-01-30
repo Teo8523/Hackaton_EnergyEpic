@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.models.mlModel import mlModel
 
 #rutas
-from app.controllers.predictionController import router as predictionRouter
+from app.routes.index import router as predictionRouter
 
 # Cargar variables de entorno al principio para que esten disponibles globalmente
 load_dotenv()
@@ -46,7 +46,7 @@ app.add_middleware(
 )
 
 #rutas
-app.include_router(predictionRouter, prefix="/api/predict")
+app.include_router(predictionRouter)
 
 
 @app.on_event("startup")
