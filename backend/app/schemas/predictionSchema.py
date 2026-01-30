@@ -4,7 +4,7 @@ from typing import Dict, List
 class PredictionInput(BaseModel):
     # Variables operativas
     temperatura_exterior_c: float = Field(..., ge=-20, le=60)
-    ocupacion_pct: float = Field(..., ge=0, le=1)
+    ocupacion_pct: float = Field(..., ge=0, le=1) # 0.5 es la mitad de ocupacion
 
     # Tiempo
     hora: int = Field(..., ge=0, le=23)
