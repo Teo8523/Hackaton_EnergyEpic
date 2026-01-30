@@ -1,0 +1,37 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.dashboard {
+    height: 100vh;
+    padding: 14px;
+    background: #eef3fb;
+
+    display: grid;
+    grid-template-columns: 70px repeat(4, 1fr);
+    grid-template-rows: 70px 1fr 1fr 1fr;
+    gap: 14px;
+
+    grid-template-areas:
+        "sidebar header header header header"
+        "sidebar info charts charts extra"
+        "sidebar info charts charts extra"
+        "sidebar status status status status";
+}
+
+/* grid areas */
+.sidebar { grid-area: sidebar; }
+.header  { grid-area: header; }
+.info    { grid-area: info; }
+.charts  { grid-area: charts; }
+.extra   { grid-area: extra; }
+.status  { grid-area: status; }
+
+/* cards */
+.card {
+    background: #f8f7f6;
+    border-radius: 16px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}

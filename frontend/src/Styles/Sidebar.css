@@ -1,0 +1,19 @@
+.sidebar {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    background: linear-gradient(180deg, #042f2e, #020617);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.menu span {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 14px;
+}
