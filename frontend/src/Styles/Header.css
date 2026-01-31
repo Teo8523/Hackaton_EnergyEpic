@@ -1,9 +1,49 @@
+/* ==========================================
+   HEADER - Encabezado
+   ========================================== */
+
 .header {
+    background: white;
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    justify-content: center;
+    padding: 1rem;
+    min-height: 80px;
 }
 
 .header img {
-    height: 62px;
+    max-height: 60px;
+    max-width: 100%;
+    object-fit: contain;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.75rem;
+        min-height: 60px;
+    }
+    
+    .header img {
+        max-height: 45px;
+    }
 }

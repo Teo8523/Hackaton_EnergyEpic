@@ -1,3 +1,128 @@
+/* ==========================================
+   CHARTS - Gráfico de Impacto de Variables
+   ========================================== */
+
 .charts {
-    padding: 16px;
+    background: linear-gradient(135deg, #5c67ca 0%, #070707 100%);
+    color: white;
+}
+
+.charts h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    opacity: 0.9;
+    font-size: 0.9rem;
+    margin: 0 0 1.5rem 0;
+}
+
+/* ==========================================
+   CONTENEDOR DE GRÁFICOS
+   ========================================== */
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.chart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* ==========================================
+   ETIQUETAS Y VALORES
+   ========================================== */
+
+.chart-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.variable-name {
+    font-weight: 600;
+}
+
+.value {
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.value.positive {
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.value.negative {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+/* ==========================================
+   BARRAS DE PROGRESO
+   ========================================== */
+
+.chart-bar-container {
+    height: 12px;
+    background: rgba(231, 231, 231, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chart-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: expandBar 0.8s ease-out;
+}
+
+.chart-bar.positive {
+    background: linear-gradient(90deg, #d10f0f 0%, #bb0202 100%);
+    box-shadow: 0 2px 8px rgba(255, 216, 155, 0.4);
+}
+
+.chart-bar.negative {
+    background: linear-gradient(90deg, #a8edea 0%, #fed6e3 100%);
+    box-shadow: 0 2px 8px rgba(168, 237, 234, 0.4);
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+
+@keyframes expandBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--final-width);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 480px) {
+    .charts h3 {
+        font-size: 1.2rem;
+    }
+    
+    .chart-label {
+        font-size: 0.85rem;
+    }
+    
+    .value {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.5rem;
+    }
 }

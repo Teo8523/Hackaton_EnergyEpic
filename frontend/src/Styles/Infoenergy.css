@@ -1,3 +1,153 @@
+/* ==========================================
+   INFO - Consumo Energético
+   ========================================== */
+
 .info {
-    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 250px;
+    justify-content: center;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.info-header .emoji {
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+.info-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    opacity: 0.95;
+    font-weight: 600;
+}
+
+/* ==========================================
+   VALOR DEL CONSUMO
+   ========================================== */
+
+.consumption-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.consumption-value h1 {
+    margin: 0;
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.consumption-value .unit {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    font-weight: 600;
+}
+
+/* ==========================================
+   NIVEL DE CONSUMO
+   ========================================== */
+
+.consumption-level {
+    display: flex;
+    justify-content: center;
+}
+
+.level-badge {
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 700;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.5s ease-out;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.info-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.info-footer p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 480px) {
+    .consumption-value h1 {
+        font-size: 3rem;
+    }
+    
+    .consumption-value .unit {
+        font-size: 1.2rem;
+    }
+    
+    .level-badge {
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
 }

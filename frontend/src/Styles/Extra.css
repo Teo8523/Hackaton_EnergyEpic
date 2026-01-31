@@ -1,3 +1,107 @@
+/* ==========================================
+   EXTRA - Explicaciones Cualitativas
+   ========================================== */
+
 .extra {
-    padding: 16px;
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    color: #2d3748;
+}
+
+.extra h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+/* ==========================================
+   LISTA DE EXPLICACIONES
+   ========================================== */
+
+.extra ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.extra li {
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2d3748;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    padding-left: 2.5rem;
+    animation: slideInLeft 0.3s ease-out backwards;
+}
+
+.extra li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.extra li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.extra li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.extra li:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.extra li:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Bullet point decorativo */
+.extra li::before {
+    content: "💡";
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+}
+
+/* ==========================================
+   ANIMACIONES
+   ========================================== */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 480px) {
+    .extra h3 {
+        font-size: 1.1rem;
+    }
+    
+    .extra li {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+        padding-left: 2.2rem;
+    }
+    
+    .extra li::before {
+        font-size: 1rem;
+        left: 0.6rem;
+    }
 }
