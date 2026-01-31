@@ -1,19 +1,92 @@
+/* ==========================================
+   SIDEBAR - Barra Lateral
+   ========================================== */
+
 .sidebar {
+    background: white;
     display: flex;
-    justify-content: center;
-    padding: 16px 0;
-    background: linear-gradient(180deg, #042f2e, #020617);
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
 }
+
+/* ==========================================
+   MENÚ
+   ========================================== */
 
 .menu {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1.5rem;
+    align-items: center;
 }
 
 .menu span {
     width: 40px;
     height: 40px;
-    background: rgba(255,255,255,0.15);
-    border-radius: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.menu span:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(23, 37, 97, 0.4);
+}
+
+.menu span:hover::before {
+    opacity: 0.2;
+}
+
+.menu span:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: row;
+        justify-content: center;
+        padding: 1rem;
+        position: static;
+        max-height: none;
+    }
+    
+    .menu {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .menu span {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu span {
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -2,6 +2,7 @@ import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
+from app.routes.chat import router as chat_router
 from app.models.mlModel import mlModel
 
 #rutas
@@ -55,7 +56,7 @@ def load_model():
 
 # - Endpoints de Salud y Raiz
 @app.get("/", summary="Estado de la API Principal")
-def root_check(): # Renombrado de health_check para evitar confusión con /health
+def root_check(): 
     return {
         "status": "ok", 
         "message": f"{project_name} API operativa",
@@ -63,6 +64,7 @@ def root_check(): # Renombrado de health_check para evitar confusión con /healt
         "cors_enabled": True,
         "allowed_origins": origins
     }
+app.include_router(chat_router)
 
 @app.get("/health", summary="Estado de Salud del Servicio")
 def health():
